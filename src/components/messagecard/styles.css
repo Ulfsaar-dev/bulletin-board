@@ -1,0 +1,32 @@
+.ui.card.message-card {
+  margin: 0 0 1em !important;
+}
+
+h2.ui.header.message-header {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+@media screen and (min-width: 600px) {
+  .ui.card.message-card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .ui.card.message-card {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .ui.card.message-card {
+    width: calc(50% - 7.5px);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .ui.card.message-card {
+    width: calc(100% / 3 - 10px);
+  }
+}
