@@ -1,5 +1,5 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 import {
   Modal,
   Button,
@@ -9,32 +9,32 @@ import {
   Loader,
   Segment,
   Message
-} from "semantic-ui-react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as _ from "lodash";
+} from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as _ from 'lodash';
 import {
   fetchPosts,
   addPost,
   updatePost,
   removePost
-} from "../../actions/postsAction";
-import EditPostDialog from "../../components/edit";
-import AddPostDialog from "../../components/add";
-import "./styles.css";
-import MessageCard from "../../components/messagecard";
-import ViewOptions from "../../components/ViewOptions";
-import { filterByTags, orderPosts } from "../../utils/utility";
+} from '../../actions/postsAction';
+import EditPostDialog from '../../components/edit';
+import AddPostDialog from '../../components/add';
+import './styles.css';
+import MessageCard from '../../components/messagecard';
+import ViewOptions from '../../components/ViewOptions';
+import { filterByTags, orderPosts } from '../../utils/utility';
 
 class Board extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      posts: typeof props.posts !== "undefined" ? props.posts.results : [],
+      posts: typeof props.posts !== 'undefined' ? props.posts.results : [],
       isLoading:
-        typeof props.isLoading !== "undefined" ? props.isLoading : false,
-      error: typeof props.error !== "undefined" ? props.error : null,
+        typeof props.isLoading !== 'undefined' ? props.isLoading : false,
+      error: typeof props.error !== 'undefined' ? props.error : null,
       selectedPost: null,
       addPost: false,
       removeIndex: -1,
@@ -46,7 +46,7 @@ class Board extends React.Component {
         created: 0,
         popularity: 0
       },
-      user: typeof props.user !== "undefined" ? props.user._id : null,
+      user: typeof props.user !== 'undefined' ? props.user._id : null,
       tagOptions: [] // {key: 'tag1', value: 'tag1', text: 'Tag1'}
     };
   }
@@ -58,11 +58,14 @@ class Board extends React.Component {
     const { tags, options } = this.state;
     if (this.props !== nextProps) {
       const posts =
-        typeof nextProps.posts !== "undefined" ? nextProps.posts.results : [];
+        typeof nextProps.posts !== 'undefined' ? nextProps.posts.results : [];
       const viewPosts = orderPosts(filterByTags(posts, tags), options);
+      const filteredPostsByTags = posts.filter(post => !!post.tags);
       const tagOptions = _.uniq(
         _.flatten(
-          posts.map(post => post.tags.split(",").map(tag => tag.trim()))
+          filteredPostsByTags.map(post =>
+            post.tags.split(',').map(tag => tag.trim())
+          )
         )
       ).map(tag => ({
         key: tag,
@@ -74,10 +77,10 @@ class Board extends React.Component {
         viewPosts,
         tagOptions,
         isLoading:
-          typeof nextProps.isLoading !== "undefined"
+          typeof nextProps.isLoading !== 'undefined'
             ? nextProps.isLoading
             : false,
-        error: typeof nextProps.error !== "undefined" ? nextProps.error : null
+        error: typeof nextProps.error !== 'undefined' ? nextProps.error : null
       });
     }
   }
@@ -214,12 +217,13 @@ class Board extends React.Component {
           />
         </Header>
         <Segment stacked>
-          {error && error.message && (
-            <Message negative>
-              <Message.Header>Sorry ...</Message.Header>
-              <p>{error.message}</p>
-            </Message>
-          )}
+          {error &&
+            error.message && (
+              <Message negative>
+                <Message.Header>Sorry ...</Message.Header>
+                <p>{error.message}</p>
+              </Message>
+            )}
           {this.renderPosts()}
         </Segment>
         {addPost && (
