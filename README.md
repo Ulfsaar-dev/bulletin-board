@@ -30,15 +30,15 @@ Run npm start to start the app then go to http://localhost:3000
 ### Frontend (React, Redux, Semantic-ui)
 - Pages: login, singup, Board pages
 - Login
-  User can login with email and password if it exists already.
+  * User can login with email and password if it exists already.
 - Sign up
-  User can signup with email, password and user name.
+  * User can signup with email, password and user name.
 - Board (Main page for Bulletin posts)
-  User can create New Bulletin with title, content body and tags.
-  User can view all posts.
-  User can edit and delete any posts that user created.
-  User can upvote and downvote all posts.
-  User can filter the posts by tags using tags filter dropdown.
-  User can order the posts by Title, Created At and Popularity.
-  All pages are responsive on a phone, tablet, laptop and desktop.
+  * User can create New Bulletin with title, content body and tags.
+  * User can view all posts.
+  * User can edit and delete any posts that user created.
+  * User can upvote and downvote all posts.
+  * User can filter the posts by tags using tags filter dropdown.
+  * User can order the posts by Title, Created At and Popularity.
+  * All pages are responsive on a phone, tablet, laptop and desktop.
 
