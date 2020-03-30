@@ -1,0 +1,52 @@
+.report-board__container.row {
+  font-size: 15px;
+}
+
+.token-detail {
+  word-break: break-all;
+}
+
+.ui.icon.input .DayPickerInput {
+  z-index: 999;
+}
+
+.ui.icon.input input {
+  padding-left: 35px;
+}
+
+.ui.icon.input .icon {
+  z-index: 1000;
+}
+
+.segment {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.content.title {
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.report-board__container .ui.stacked.segment {
+  padding-bottom: 0;
+}
+
+.report-board__container .ui.stacked.segment::after {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .report-board__container .ui.fluid.container {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .ui.header {
+    display: flex;
+    flex-direction: column;
+  }
+}
