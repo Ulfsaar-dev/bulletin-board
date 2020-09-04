@@ -40,7 +40,7 @@
     "express-jwt": "^5.3.0",
     "helmet": "^3.9.0",
     "jsonwebtoken": "^8.1.0",
-    "kerberos": "0.0.23",
+    "kerberos": "1.0.0",
     "lodash": "^4.17.4",
     "method-override": "^2.3.5",
     "mocha": "^4.0.1",
